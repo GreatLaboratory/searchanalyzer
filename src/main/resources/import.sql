@@ -1,0 +1,1 @@
+INSERT INTO USER (uid, password, name, role, created_date, modified_date) VALUES('admin', '$2a$10$sA4Sgjcnz7OaqQ.y1XAi0ObRTs6u6fo4jc5XKJXClX25/FIqiRpCy', 'greatlaboratory', 'ADMIN', '2021-04-22 20:00:00.000000', '2021-04-22 20:00:00.000000');
