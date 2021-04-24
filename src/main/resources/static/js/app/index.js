@@ -16,7 +16,17 @@ function user_delete(id) {
     }
 }
 
-function search() {
+function user_search() {
     var keyword = $('#keyword').val();
     window.location.href = '/admin/users?keyword='+keyword
 }
+
+$("button").off().on("click","button #host_search",function(){
+    var keyword = $('#keyword').val();
+        document.location.href = '/host?keyword='+keyword
+})
+
+$("button").off().on("click","button #keyword_search",function(){
+    var keyword = $('#keyword').val();
+        document.location.href = '/search?keyword='+keyword
+})
