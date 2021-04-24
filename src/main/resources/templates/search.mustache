@@ -1,0 +1,32 @@
+{{>layout/header}}
+
+<form>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <input id="keyword" name="keyword" type="text" placeholder="검색어를 입력해주세요.">
+<!--        <button onclick="keyword_search()" class="btn btn-secondary">검색</button>-->
+        <button id="keyword_search" class="btn btn-secondary">검색</button>
+    </div>
+</form>
+
+<table class="table" id="userList">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">No.</th>
+        <th scope="col">URL</th>
+        <th scope="col">타이틀</th>
+        <th scope="col">검색어 출현수</th>
+    </tr>
+    </thead>
+    {{#searchList}}
+        <tbody>
+        <tr>
+            <td>{{id}}</td>
+            <td>{{url}}</td>
+            <td>{{title}}</td>
+            <td>{{keyword_cnt}}</td>
+        </tr>
+        </tbody>
+    {{/searchList}}
+</table>
+
+{{>layout/footer}}
