@@ -1,0 +1,54 @@
+{{>layout/header}}
+
+<form>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <input id="keyword" name="keyword" type="text" placeholder="검색할 이름을 입력해주세요.">
+        <button onclick="search()" class="btn btn-secondary">검색</button>
+    </div>
+</form>
+
+<table class="table" id="userList">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">No.</th>
+        <th scope="col">ID</th>
+        <th scope="col">이름</th>
+        <th scope="col">기능</th>
+    </tr>
+    </thead>
+    {{#users}}
+        <tbody>
+        <tr>
+            <td>{{id}}</td>
+            <td>{{uid}}</td>
+            <td>{{name}}</td>
+            <td><a href = "#" onclick="user_delete({{id}})">삭제</a></td>
+        </tr>
+        </tbody>
+    {{/users}}
+</table>
+
+<ul class="pagination justify-content-center">
+    {{#checkPrevious}}
+        <li class="page-item">
+            <a class="page-link" href="?keyword={{keyword}}&page={{previous}}"><</a>
+        </li>
+    {{/checkPrevious}}
+    {{^checkPrevious}}
+        <li class="page-item">
+            <a class="page-link" href="?keyword={{keyword}}&page={{previous}}"><</a>
+        </li>
+    {{/checkPrevious}}
+    {{#checkNext}}
+        <li class="page-item">
+            <a class="page-link" href="?keyword={{keyword}}&page={{next}}">></a>
+        </li>
+    {{/checkNext}}
+    {{^checkNext}}
+        <li class="page-item disabled">
+            <a class="page-link" href="?keyword={{keyword}}&page={{next}}">></a>
+        </li>
+    {{/checkNext}}
+</ul>
+
+{{>layout/footer}}

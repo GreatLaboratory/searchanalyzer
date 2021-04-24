@@ -1,0 +1,15 @@
+{{>layout/header}}
+
+<h1>Join</h1> <hr>
+<form action="/join" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    id : <input type="text" name="uid" maxlength="10" required pattern="^[a-zA-Z]+$"> <br>
+    password : <input type="password" name="password" minlength="8" required pattern="^.*(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$"> <br>
+    name : <input type="text" name="name" required> <br>
+    <button>Join</button>
+</form>
+<br>
+
+<a href="/login">Go to login! →</a>
+
+{{>layout/footer}}
