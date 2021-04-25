@@ -1,10 +1,10 @@
-function user_delete(id) {
-    if(id==1) {
+function user_delete(uid) {
+    if(uid==='admin') {
         alert('관리자는 삭제할 수 없습니다.')
     } else {
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/user/'+id,
+            url: `/api/v1/user/${uid}`,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'
         }).done(function() {
@@ -21,12 +21,13 @@ function user_search() {
     window.location.href = '/admin/users?keyword='+keyword
 }
 
-$("button").off().on("click","button #host_search",function(){
-    var keyword = $('#keyword').val();
-        document.location.href = '/host?keyword='+keyword
-})
+function host_search_function() {
+    var host_keyword = $('#host_keyword').val();
+    var sort = $('#sort').val();
+    window.location.href = '/host?keyword=' + host_keyword + '&sort=' + sort
+}
 
-$("button").off().on("click","button #keyword_search",function(){
-    var keyword = $('#keyword').val();
-        document.location.href = '/search?keyword='+keyword
+$("button").off().on("click", "button #keyword_search", function(){
+    var keyword2 = $('#search_keyword').val()
+    window.location.href = '/search?keyword='+keyword2
 })
