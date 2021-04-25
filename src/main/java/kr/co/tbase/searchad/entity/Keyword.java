@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Keyword {
+public class Keyword extends BaseTime{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

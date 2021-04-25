@@ -9,7 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Getter
-public class Search {
+public class Search extends BaseTime{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
