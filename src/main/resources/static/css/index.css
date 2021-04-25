@@ -1,0 +1,12 @@
+#title {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+#navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
