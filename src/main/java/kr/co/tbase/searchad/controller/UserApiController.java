@@ -12,10 +12,10 @@ public class UserApiController {
 
     private final UserService userService;
 
-    @DeleteMapping("/api/v1/user/{id}")
-    public Long deleteUser(@PathVariable Long id) {
-        userService.delete(id);
-        return id;
+    @DeleteMapping("/api/v1/user/{uid}")
+    public Long deleteUser(@PathVariable String uid) {
+        userService.delete(uid);
+        return 200L;
     }
 
 

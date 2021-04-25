@@ -45,9 +45,9 @@ public class UserService implements UserDetailsService{
     }
 
     @Transactional
-    public void delete(Long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 유저 아이디가 존재하지 않습니다. id="+id));
+    public void delete(String uid) {
+        User user = userRepository.findByUid(uid)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저 아이디가 존재하지 않습니다. uid="+uid));
         userRepository.delete(user);
     }
 
