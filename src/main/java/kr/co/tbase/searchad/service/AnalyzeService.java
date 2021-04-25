@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -165,7 +166,7 @@ public class AnalyzeService {
 
     // 호스트 통계 결과
     @Transactional
-    public List<HostResponseDto> getHostList(String keyword) {
+    public List<HostResponseDto> getHostList(String keyword, String sort) {
         List<HostResponseDto> result = new ArrayList<>();
         AtomicInteger cnt = new AtomicInteger();
         cnt.set(0);
@@ -182,6 +183,13 @@ public class AnalyzeService {
                 result.add(hostResponseDto);
             });
         });
+        Collections.sort(result);
+        if (sort.equals("desc")) {
+            Collections.reverse(result);
+        }
+        for (int i = 0; i < result.size(); i++) {
+            result.get(i).setId((long) i+1);
+        }
         return result;
     }
 }

@@ -1,9 +1,13 @@
 {{>layout/header}}
 
 <form>
+    <select id="sort">
+        <option value="asc">오름차순</option>
+        <option value="desc">내림차순</option>
+    </select>
     <div class="btn-group" role="group" aria-label="Basic example">
-        <input id="keyword" name="keyword" type="text" placeholder="검색어를 입력해주세요.">
-        <button id="host_search" class="btn btn-secondary">검색</button>
+        <input id="host_keyword" name="keyword" type="text" placeholder="검색어를 입력해주세요.">
+        <button class="btn btn-secondary" onclick="host_search_function()">검색</button>
     </div>
 </form>
 

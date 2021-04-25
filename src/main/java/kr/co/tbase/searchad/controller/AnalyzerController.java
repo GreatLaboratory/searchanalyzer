@@ -24,9 +24,9 @@ public class AnalyzerController {
 
     // 호스트 통계 페이지로 이동
     @GetMapping("/host")
-    public String hostPage(Model model, @RequestParam(defaultValue = "") String keyword) {
+    public String hostPage(Model model, @RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "asc") String sort) {
         if(!keyword.equals("")){
-            model.addAttribute("hostList", analyzeService.getHostList(keyword));
+            model.addAttribute("hostList", analyzeService.getHostList(keyword, sort));
         }
         return "host";
     }
